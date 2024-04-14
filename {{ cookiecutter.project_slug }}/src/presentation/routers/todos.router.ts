@@ -11,5 +11,26 @@ const datasource = new TodosMongoDBDatasource()
 const repository = new TodosRepository(datasource)
 const controller = new TodosController(repository)
 
-todosRouter.route('/')
-    .post(controller.create.bind(controller))
+/**
+ * @openapi
+ * /todos:
+ *   post:
+ *     tags: 
+ *       - Todos
+ *     summary: Add new todo
+ *     security:
+ *       - apiKey: []
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/CreateTodo'
+ *     responses:
+ *       201:
+ *         description: Todo created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Todo'
+ */
+todosRouter.post('/', controller.create.bind(controller))
