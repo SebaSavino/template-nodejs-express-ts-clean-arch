@@ -18,7 +18,7 @@ pip install cookiecutter
 3. Generate the project using Cookiecutter:
 
 ```bash
-cookiecutter <cookiecutter_template_url>
+cookiecutter git@github.com:SebaSavino/template-nodejs-express-ts-clean-arch.git
 ```
 
 4. Navigate to the generated project directory:
